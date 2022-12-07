@@ -1,1 +1,1 @@
-web: gunicorn run:rk_sw
+web: gunicorn run:robokiller
