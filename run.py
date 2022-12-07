@@ -4,9 +4,9 @@ import json
 import requests
 from flask import Flask
 from flask import request
-rk_sw = Flask(__name__)
+robokiller = Flask(__name__)
 
-@rk_sw.route('/')
+@robokiller.route('/')
 def hello_world():
     _api_key = os.environ.get('RK_API_KEY', None)
     _to = request.args.get('To')
@@ -22,4 +22,4 @@ def hello_world():
 
 
 if __name__ == '__main__':
-    rk_sw.run()
+    robokiller.run()
