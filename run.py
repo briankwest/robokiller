@@ -7,7 +7,7 @@ from flask import request
 robokiller = Flask(__name__)
 
 @robokiller.route('/')
-def hello_world():
+def robokiller():
     _api_key = os.environ.get('RK_API_KEY', None)
     _to = request.args.get('To')
     _from = request.args.get('From')
