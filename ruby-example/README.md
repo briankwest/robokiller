@@ -33,5 +33,5 @@ Start the application:
 bundle exec rackup config.ru -p 3000 -o 0.0.0.0
 ```
 
-Configure  [IP:3000/new_call](http://IP:3000/new_call) to your signalwire number LaML webhook and make call to that number to test
+Configure  [http://IP:3000/new_call](http://IP:3000/new_call) to your signalwire number LaML webhook and make call to that number to verify 
 
