@@ -1,4 +1,4 @@
-# Validate Incoming call to signalwire before ianswing them 
+# Validate Incoming calls to signalwire before answring them 
 
 This is an example application that you can use to Answer or reject call after validaing From number with  [RoboKiller  API](https://enterprise-api.robokiller.com/v1/docs/).
 
