@@ -5,7 +5,7 @@ require 'signalwire/sdk'
 class LaMLApp < Sinatra::Base
    get '/new_call' do
        content_type 'text/xml' 
-       is_under_blacklist=is_blacklist_number(params[:From])
+       is_under_blacklist=is_blacklist_number(params[:From],params[:to])
        response =""
        if is_under_blacklist == "YES"
            response = Signalwire::Sdk::VoiceResponse.new  do |response|
@@ -24,9 +24,9 @@ class LaMLApp < Sinatra::Base
        return response.to_s  
    end
 
-   def is_blacklist_number(number)
+   def is_blacklist_number(from_number,to_number)
       begin
-         uri= URI.parse('https://enterprise-api.robokiller.com/v1/reputation?from='+number+'&to=+19184249378&api_key='+ENV['RK_API_KEY'])
+         uri= URI.parse('https://enterprise-api.robokiller.com/v1/reputation?from='+number+'&to='+to_number+'&api_key='+ENV['RK_API_KEY'])
          puts uri
          result=Net::HTTP.get(uri) 
          puts "******************************"
