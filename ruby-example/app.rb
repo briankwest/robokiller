@@ -27,9 +27,7 @@ class LaMLApp < Sinatra::Base
    def is_blacklist_number(from_number,to_number)
       begin
          uri= URI.parse('https://enterprise-api.robokiller.com/v1/reputation?from='+number+'&to='+to_number+'&api_key='+ENV['RK_API_KEY'])
-         puts uri
          result=Net::HTTP.get(uri) 
-         puts "******************************"
          if JSON.parse(result)["classification"] == "blacklist"
             return "YES"
          else
