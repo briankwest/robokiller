@@ -5,7 +5,7 @@ require 'signalwire/sdk'
 class LaMLApp < Sinatra::Base
    get '/new_call' do
        content_type 'text/xml' 
-       is_under_blacklist=is_blacklist_number(params[:From],params[:to])
+       is_under_blacklist=is_blacklist_number(params[:From],params[:To])
        response =""
        if is_under_blacklist == "YES"
            response = Signalwire::Sdk::VoiceResponse.new  do |response|
