@@ -9,9 +9,9 @@ robokiller = Flask(__name__)
 @robokiller.route('/')
 def go_robokiller():
     _api_key = os.environ.get('RK_API_KEY', None)
-    _to = urllib.parse.quote(request.args.get('To'))
-    _from = urllib.parse.quote(request.args.get('From'))
-    _dest = urllib.parse.quote(request.args.get('Dest'))
+    _to = quote(request.args.get('To'))
+    _from = quote(request.args.get('From'))
+    _dest = quote(request.args.get('Dest'))
     if all(v is not None for v in [_api_key, _to, _from, _dest]):
         _data = json.loads(requests.get('https://enterprise-api.robokiller.com/v1/reputation?from=' + _from + '&to=' + _to + '&api_key=' + _api_key).content)
 
